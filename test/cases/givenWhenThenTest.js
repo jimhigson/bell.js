@@ -1,4 +1,4 @@
-(function() {
+
 /*
    var given = Bell.given,
        is = Bell.is,
@@ -7,22 +7,22 @@
 
    var adding = curry(prefix('+')); */
 
-   AsyncTestCase('Bell.givenWhenThen', {
-
-      'simple test case': testWithDependencies(
-         ['bell/givenWhenThen', 'Bell/is', 'Naga/curry', 'Naga/prefix'],
+DependentTestCase('Bellgiven',
+   ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix'], 
+   {
+      'test simple case': 
          function(given, is, curry, prefix){
 
             var adding = curry(prefix('+'));
 
             given(2)
                .when(adding(2))
-               .then(is(4)); // passes!
-      })
-   });
+               .then(is(4));
+         }
+   }
+);
 
-
-
+/*
    given(2)
       .when(adding(2))
       .then(is(4)); // passes!
@@ -51,5 +51,5 @@
    given(1,2,3,4,5)
       .then(all(lessThan(5)))
       .should(fail);
-
-})();
+      
+   */      
