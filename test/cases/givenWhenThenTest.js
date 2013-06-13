@@ -8,12 +8,12 @@
    var adding = curry(prefix('+')); */
 
 DependentTestCase('bell.givenWhenThen',
-   ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix'], 
+   ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix2'], 
    {
       'test simple case': 
-         function(given, is, curry, prefix){
+         function(given, is, curry, prefix2){
 
-            var adding = curry(prefix('+'));
+            var adding = curry(prefix2('+'));
 
             given(2)
                .when(adding(2))
