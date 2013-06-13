@@ -1,8 +1,8 @@
 define(
-   ['Naga/chain', 'Naga/compose'],
+   ['naga/chain', 'naga/compose'],
    function(chain, compose) {
 
-      // given-when-then is basically functional composition.
+      // given-when-then is basically functional chaining and composition.
 
       return chain(
          'given(givenFunc).when(whenFunc).then(thenFunc)',

@@ -1,5 +1,5 @@
 define(
-   ['condition', 'template', 'Naga/inline'],
+   ['bell/condition', 'naga/template', 'naga/prefix'],
    function(condition, template, prefix) {
 
       return condition(

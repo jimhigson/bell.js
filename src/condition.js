@@ -1,5 +1,5 @@
 define(
-   ['Naga/chain', 'Naga/throwError'],
+   ['naga/chain', 'naga/throwError'],
    function(chain, throwError) {
 
       /**

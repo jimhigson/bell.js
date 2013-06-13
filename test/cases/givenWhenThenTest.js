@@ -7,7 +7,7 @@
 
    var adding = curry(prefix('+')); */
 
-DependentTestCase('Bellgiven',
+DependentTestCase('bell.givenWhenThen',
    ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix'], 
    {
       'test simple case': 
