@@ -8,6 +8,8 @@ define(
        *
        * Returns a function which executes the condition function. If an exception is thrown
        * when the conditionFunction is called, uses errorFunc to generate an error message)s
+       * 
+       * TODO: rename condition to test?
        */
       return chain(
          'test(conditionFunc).reportingOnError(errorFunc)',
