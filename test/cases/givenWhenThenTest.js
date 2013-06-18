@@ -8,25 +8,21 @@
    var adding = curry(prefix('+')); */
 
 DependentTestCase('givenWhenThen',
-   ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix2'], 
+   ['bell/givenWhenThen', 'bell/is', 'naga/add'], 
    {
       'test simple case': 
-         function(given, is, curry, prefix2){
-
-            var adding = curry(prefix2('+'));
+         function(given, is, add){
 
             given(2)
-               .when(adding(2))
+               .when(add(2))
                .then(is(4));
          }
          
    ,  'test simple failing case': 
-         function(given, is, curry, prefix2){
-
-            var adding = curry(prefix2('+'));
+         function(given, is, add){
 
             given(2)
-               .when(adding(2))
+               .when(add(2))
                .then(is(5));
          }         
    }
