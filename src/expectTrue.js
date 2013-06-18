@@ -1,7 +1,7 @@
 define( ['naga/error/halt'], 
 function(halt) {
 
-   var wasFalse = halt("It wasn't true, it was {foundValue}");
+   var wasFalse = halt("expression wasn't true, it was {foundValue}");
 
    return function expectTrue( f ) {
       return function() {

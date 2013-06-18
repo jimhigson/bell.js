@@ -12,7 +12,7 @@ define(
        * TODO: rename condition to test?
        */
       return chain(
-         'test(conditionFunc).reportingOnError(errorFunc)',
+         'condition(conditionFunc).reportingOnError(errorFunc)',
          function( conditionFunc, errorFunc) {
 
             return function() {
