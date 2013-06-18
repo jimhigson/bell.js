@@ -21,7 +21,7 @@ define(
                } catch(e) {
 
                   var messageFromErrorFunc = errorFunc.apply(this, arguments);
-                  var reportFailure = throwError(template("{messageFromErrorFunc} {conditionFailure})"));
+                  var reportFailure = throwError(template("{conditionFailure} : {messageFromErrorFunc}"));
                   
                   reportFailure(messageFromErrorFunc, e.message);
                }
