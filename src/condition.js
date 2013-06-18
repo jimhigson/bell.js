@@ -1,6 +1,6 @@
 define(
-   ['naga/chain', 'naga/throwError'],
-   function(chain, throwError) {
+   ['naga/chain', 'naga/throwError', 'naga/template'],
+   function(chain, throwError, template) {
 
       /**
        * Create a function suitable for use in a .then() clause of a bdd given-when-then
@@ -13,7 +13,7 @@ define(
        */
       return chain(
          'test(conditionFunc).reportingOnError(errorFunc)',
-         function( conditionFunc, errorFunc ) {
+         function( conditionFunc, errorFunc) {
 
             return function() {
                try{
@@ -21,8 +21,9 @@ define(
                } catch(e) {
 
                   var messageFromErrorFunc = errorFunc.apply(this, arguments);
-
-                  throwError("{messageFromErrorFunc} {conditionFailure}")(messageFromErrorFunc, e.message);
+                  var reportFailure = throwError(template("{messageFromErrorFunc} {conditionFailure})"));
+                  
+                  reportFailure(messageFromErrorFunc, e.message);
                }
             }
          }
