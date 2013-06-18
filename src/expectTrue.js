@@ -3,13 +3,17 @@ function(halt, apply) {
 
    var wasFalse = halt("expression wasn't true, it was {foundValue}");
 
+   /**
+    * Return a function which evaluates f. If the result is falsey, throws
+    * an error via naga/error/halt.
+    */
    return function expectTrue( f ) {
       return function() {
          
-         var found = apply(f, arguments); 
+         var result = apply(f, arguments); 
          
-         if( !found ) {
-            wasFalse(found);
+         if( !result ) {
+            wasFalse(result);
          }         
       };
    }
