@@ -1,12 +1,12 @@
 define(
-   [        'bell/condition', 'naga/template', 'naga/prefix2', 'bell/expectTrue', 'naga/curry'],
-   function( condition,        template,        prefix2,        expectTrue,        curry) {
+   [        'bell/condition', 'naga/template', 'naga/equals', 'bell/expectTrue', 'naga/curry'],
+   function( condition,        template,        equals,             expectTrue,        curry) {
 
-      var notEqualFailure = template("expected to be equal to {expected} but was {value}");
+      var notEqualFailure = template("expected to be equal to {expected} but got {value}");
 
       return function is(expected) {
       
-         var equalToExpectedValue = curry(prefix2('=='))(expected),
+         var equalToExpectedValue = curry(equals)(expected),
              notEqualToExpectedFailure = notEqualFailure(expected);
    
          return condition(expectTrue(equalToExpectedValue))
