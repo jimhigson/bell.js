@@ -1,6 +1,7 @@
-define( ['naga/throwError'], function(throwError) {
+define( ['naga/error/halt'], 
+function(halt) {
 
-   var failure = throwError("It wasn't true, it was {foundValue}");
+   var wasFalse = halt("It wasn't true, it was {foundValue}");
 
    return function expectTrue( f ) {
       return function() {
@@ -8,9 +9,8 @@ define( ['naga/throwError'], function(throwError) {
          var found = f.apply( this, arguments ); 
          
          if( !found ) {
-            failure(found);
-         }
-         
+            wasFalse(found);
+         }         
       };
    }
       
