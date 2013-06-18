@@ -7,7 +7,7 @@
 
    var adding = curry(prefix('+')); */
 
-DependentTestCase('bell.givenWhenThen',
+DependentTestCase('givenWhenThen',
    ['bell/givenWhenThen', 'bell/is', 'naga/curry', 'naga/prefix2'], 
    {
       'test simple case': 
@@ -19,8 +19,23 @@ DependentTestCase('bell.givenWhenThen',
                .when(adding(2))
                .then(is(4));
          }
+         
+   ,  'test simple failing case': 
+         function(given, is, curry, prefix2){
+
+            var adding = curry(prefix2('+'));
+
+            given(2)
+               .when(adding(2))
+               .then(is(5));
+         }         
    }
 );
+
+
+
+// test that an exception thrown in any of the G,W,T fails the test
+// test that no exceptions thrown passes the test
 
 /*
    given(2)
